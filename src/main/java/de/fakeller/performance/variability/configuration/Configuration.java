@@ -3,10 +3,7 @@ package de.fakeller.performance.variability.configuration;
 import de.fakeller.performance.variability.feature.Feature;
 import de.fakeller.performance.variability.feature.FeatureModel;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Defines a configuration of the {@link FeatureModel}, such that each {@link Feature} is either enabled or disabled.
@@ -15,7 +12,7 @@ public class Configuration<FEATURE> {
 
     private final FeatureModel<FEATURE> fm;
 
-    private final Map<Feature<FEATURE>, Boolean> isEnabled = new HashMap();
+    private final Map<Feature<FEATURE>, Boolean> isEnabled = new LinkedHashMap<>();
 
     public Configuration(final FeatureModel<FEATURE> fm) {
         this.fm = fm;
@@ -53,5 +50,12 @@ public class Configuration<FEATURE> {
     public boolean isEnabled(final Feature<FEATURE> feature) {
         assert this.fm.hasFeature(feature);
         return this.isEnabled.get(feature);
+    }
+
+    /**
+     * Returns an ordered list of boolean flags indicating whether the feature at index i is enabled or not.
+     */
+    public List<Boolean> getFeatureFlags() {
+        return new ArrayList<>(this.isEnabled.values());
     }
 }

@@ -29,4 +29,11 @@ public class FeatureModel<FEATURE> {
     public boolean hasFeature(final Feature<FEATURE> feature) {
         return this.features.contains(feature);
     }
+
+    /**
+     * Gets the feature at the specified index.
+     */
+    public Feature<FEATURE> get(final int index) {
+        return this.getFeatures().get(index);
+    }
 }
