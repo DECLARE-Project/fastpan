@@ -1,5 +1,8 @@
 # Performance
 
+[![GitHub tag](https://img.shields.io/github/tag/FaKeller/performance.svg?maxAge=30)](https://github.com/FaKeller/performance/releases)
+[![license](https://img.shields.io/github/license/FaKeller/performance.svg?maxAge=30)](LICENSE)
+
 A framework for model-agnostic software performance analysis. The framework currently features:
 
 - An opinionated way to define performance analyzers
