@@ -8,6 +8,13 @@ This file keeps track of all changes to this project. This project follows [sema
 ## [UNRELEASED]
 
 
+
+## v0.0.2 - 2016-10-11
+
+### Changed
+- Maven groupId from `de.fabiankeller.performance` to `de.fakeller.performance`.
+
+
 ## v0.0.1 - 2016-10-11
 
 ### Added
