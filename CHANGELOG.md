@@ -7,6 +7,9 @@ This file keeps track of all changes to this project. This project follows [sema
 
 ## [UNRELEASED]
 
+
+## v0.0.1 - 2016-10-11
+
 ### Added
 - First draft of performance analyzer abstraction extracted from the [palladio headless](https://github.com/SQuAT-Team/palladio-headless) project.
  
