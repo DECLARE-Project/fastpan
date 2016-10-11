@@ -8,4 +8,7 @@ This file keeps track of all changes to this project. This project follows [sema
 ## [UNRELEASED]
 
 ### Added
-- First draft of performance analyzer abstraction extracted from the [palladio headless](https://github.com/SQuAT-Team/palladio-headless) project. 
+- First draft of performance analyzer abstraction extracted from the [palladio headless](https://github.com/SQuAT-Team/palladio-headless) project.
+ 
+### Changed
+- Changed package namespace from `de.fabiankeller.*` to `de.fakeller.*` to comply with Java naming conventions.
