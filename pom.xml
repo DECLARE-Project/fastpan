@@ -3,15 +3,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.fakeller.performance</groupId>
-    <artifactId>performance-analysis</artifactId>
+    <artifactId>fastpan</artifactId>
     <version>0.0.3-SNAPSHOT</version>
 
-    <name>Performance Analysis</name>
-    <description>Provides a model-agnostic abstraction for defining reusable performance analyses.</description>
-    <url>https://github.com/FaKeller/performance</url>
+    <name>fastpan</name>
+    <description>A framework for model-agnostic and reusable software performance analysis.</description>
+    <url>https://github.com/DECLARE-Project/fastpan</url>
 
     <scm>
-        <developerConnection>scm:git:git@github.com:FaKeller/performance.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:DECLARE-Project/fastpan.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 

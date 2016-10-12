@@ -2,10 +2,13 @@
 
 This file keeps track of all changes to this project. This project follows [semantic versioning](http://semver.org/) and [keeps a change log](http://keepachangelog.com/).
 
-> Please [view this change log on the master branch](https://github.com/FaKeller/performance/blob/master/CHANGELOG.md), as otherwise it is probably outdated.
+> Please [view this change log on the master branch](https://github.com/DECLARE-Project/fastpan/blob/master/CHANGELOG.md), as otherwise it is probably outdated.
 
 
 ## [UNRELEASED]
+
+### Changed
+- The project has been named "fastpan". The naming has been updated throughput the project. Check your maven dependencies.
 
 ### Added
 - Define variability analyzer abstraction with a simplified feature model.
@@ -21,7 +24,7 @@ This file keeps track of all changes to this project. This project follows [sema
 ## v0.0.1 - 2016-10-11
 
 ### Added
-- First draft of performance analyzer abstraction extracted from the [palladio headless](https://github.com/SQuAT-Team/palladio-headless) project.
+- First draft of performance analyzer abstraction extracted from the [palladio headless](https://github.com/DECLARE-Project/palladio-headless) project.
  
 ### Changed
 - Changed package namespace from `de.fabiankeller.*` to `de.fakeller.*` to comply with Java naming conventions.
