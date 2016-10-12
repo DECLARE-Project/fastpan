@@ -7,6 +7,9 @@ This file keeps track of all changes to this project. This project follows [sema
 
 ## [UNRELEASED]
 
+
+## v0.1.0 - 2016-10-12
+
 ### Changed
 - The project has been named "fastpan". The naming has been updated throughput the project. Check your maven dependencies.
 
