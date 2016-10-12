@@ -1,5 +1,9 @@
 package de.fakeller.performance.analysis.result;
 
+import de.fakeller.performance.analysis.result.metric.PerformanceMetric;
+import de.fakeller.performance.analysis.result.metric.ServiceTime;
+import de.fakeller.performance.analysis.result.metric.Throughput;
+import de.fakeller.performance.analysis.result.metric.Utilization;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -65,9 +69,28 @@ public class AbstractPerformanceResultTest {
         assertEquals(Arrays.asList(res3), this.sut.getResults("node2"));
     }
 
+    @Test
+    public void getMetric() {
+        when(mockResult("node2").value()).thenReturn(mock(PerformanceMetric.class));
+        when(mockResult("node2").value()).thenReturn(mock(Utilization.class));
+        final ServiceTime serviceTime = mock(ServiceTime.class);
+        when(mockResult("node2").value()).thenReturn(serviceTime);
+
+        assertTrue(this.sut.getMetric("node2", ServiceTime.class).isPresent());
+        assertSame(serviceTime, this.sut.getMetric("node2", ServiceTime.class).get());
+        assertFalse(this.sut.getMetric("node2", Throughput.class).isPresent());
+
+        assertFalse(this.sut.getMetric("node3", ServiceTime.class).isPresent());
+        assertFalse(this.sut.getMetric("node3", Throughput.class).isPresent());
+    }
+
 
     private Result<String> mockResult(final String attachTo) {
-        final Result mock = mock(Result.class);
+        return this.mockResult(attachTo, Result.class);
+    }
+
+    private Result<String> mockResult(final String attachTo, final Class<? extends Result> clazz) {
+        final Result mock = mock(clazz);
         when(mock.attachedTo()).thenReturn(attachTo);
         this.sut.attach(mock);
         return mock;
