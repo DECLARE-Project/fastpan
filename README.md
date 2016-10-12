@@ -1,7 +1,9 @@
-# Performance
+# fastpan
 
-[![GitHub tag](https://img.shields.io/github/tag/FaKeller/performance.svg?maxAge=30)](https://github.com/FaKeller/performance/releases)
-[![license](https://img.shields.io/github/license/FaKeller/performance.svg?maxAge=30)](LICENSE)
+[![GitHub tag](https://img.shields.io/github/tag/DECLARE-Project/fastpan.svg?maxAge=30)](https://github.com/DECLARE-Project/fastpan/releases)
+[![Travis](https://img.shields.io/travis/DECLARE-Project/fastpan.svg?maxAge=30)](https://travis-ci.org/DECLARE-Project/fastpan)
+[![Coverage](https://img.shields.io/codecov/c/github/DECLARE-Project/fastpan.svg?maxAge=30)](https://codecov.io/gh/DECLARE-Project/fastpan)
+[![license](https://img.shields.io/github/license/DECLARE-Project/fastpan.svg?maxAge=30)](LICENSE)
 
 A framework for model-agnostic software performance analysis. The framework currently features:
 
