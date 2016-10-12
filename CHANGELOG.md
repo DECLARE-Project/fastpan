@@ -7,6 +7,8 @@ This file keeps track of all changes to this project. This project follows [sema
 
 ## [UNRELEASED]
 
+### Added
+- Variability analyzer implementation based on decision trees.
 
 
 ## v0.0.2 - 2016-10-11
