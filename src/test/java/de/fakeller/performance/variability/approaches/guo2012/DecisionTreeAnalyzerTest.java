@@ -34,7 +34,7 @@ public class DecisionTreeAnalyzerTest {
         final SparkConf cfg = new SparkConf().setAppName("testing").setMaster("local");
         final JavaSparkContext sc = new JavaSparkContext(cfg);
 
-        final LoadData data = new LoadData("src/main/resources/BDBCAll.csv", 18 * 3);
+        final LoadData data = new LoadData("src/test/resources/BDBCAll.csv", 18 * 3);
 
         final DecisionTreeAnalyzer<String, String> analyzer = new DecisionTreeAnalyzer<String, String>(new StubAnalyzer(data), res -> {
             final AttachedResult<String> result = (AttachedResult<String>) ((PerformanceResult<String>) res).getResults("result").toArray()[0];
