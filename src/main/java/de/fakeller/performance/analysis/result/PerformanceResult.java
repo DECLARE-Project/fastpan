@@ -1,6 +1,9 @@
 package de.fakeller.performance.analysis.result;
 
+import de.fakeller.performance.analysis.result.metric.PerformanceMetric;
+
 import java.util.Collection;
+import java.util.Optional;
 import java.util.Set;
 
 /**
@@ -34,4 +37,9 @@ public interface PerformanceResult<T> {
      * Returns all results for the {@link T}.
      */
     Collection<Result<T>> getResults(T element);
+
+    /**
+     * Returns an optional containing the {@link PerformanceMetric} attached to the given element.
+     */
+    <M extends PerformanceMetric> Optional<M> getMetric(T element, Class<M> metric);
 }
