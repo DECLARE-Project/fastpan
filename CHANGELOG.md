@@ -7,6 +7,9 @@ This file keeps track of all changes to this project. This project follows [sema
 
 ## [UNRELEASED]
 
+### Added
+- Define variability analyzer abstraction with a simplified feature model.
+- Variability analyzer implementation based on decision trees.
 
 
 ## v0.0.2 - 2016-10-11
