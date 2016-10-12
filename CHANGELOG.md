@@ -8,6 +8,11 @@ This file keeps track of all changes to this project. This project follows [sema
 ## [UNRELEASED]
 
 
+## v0.1.1 - 2016-10-12 [Maintenance Release]
+
+No changes
+
+
 ## v0.1.0 - 2016-10-12
 
 ### Changed
