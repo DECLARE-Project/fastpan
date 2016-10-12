@@ -7,6 +7,9 @@ This file keeps track of all changes to this project. This project follows [sema
 
 ## [UNRELEASED]
 
+
+## v0.1.2 - 2016-10-12
+
 ### Added
 - Added `getMetric()` to `PerformanceResult`.
 

@@ -15,12 +15,39 @@ A framework for model-agnostic software performance analysis. The framework curr
 
 ## Installation
 
+### Using Maven
+
+Define a dependency to this project using [JitPack](https://jitpack.io/#DECLARE-Project/fastpan):
+
+```xml
+<dependency>
+    <groupId>com.github.DECLARE-Project</groupId>
+    <artifactId>fastpan</artifactId>
+    <version>v0.1.2</version>
+</dependency>
+```
+
+Make sure to define the JitPack repository: 
+
+```xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+```
+
+
+### Download a JAR
+
+Download the [latest release](https://github.com/DECLARE-Project/fastpan/releases/latest) from the GitHub releases.
+
+### From Source
+
 - Check out this project from source.
 - Hop on a shell and run `mvn clean install`. You may also do this from your favorite IDE.
-
-#### Export as Library:
-
-You may export this project as standalone JAR library including all required dependencies by running `mvn clean package`. The JAR file is then created in `/target/*.jar`.
+- You may export this project as standalone JAR library including all required dependencies by running `mvn clean package`. The JAR file is then created in `/target/*.jar`.
 
 
 ## Usage
