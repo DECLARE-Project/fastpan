@@ -17,6 +17,7 @@ public class RelativeThroughput extends AbstractPerformanceQuantity<ThroughputUn
         return this.value;
     }
 
+
     @Override
     protected String getHumanReadableDescription() {
         return "RelativeThroughput";
