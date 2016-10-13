@@ -1,4 +1,4 @@
-package de.fakeller.performance.analysis.result.metric;
+package de.fakeller.performance.analysis.result.quantity;
 
 import de.fakeller.performance.analysis.result.unit.Unit;
 import de.fakeller.performance.analysis.result.valueobject.AbstractValueObject;
@@ -29,7 +29,7 @@ abstract public class AbstractPerformanceQuantity<U extends Unit, T extends Valu
     }
 
     /**
-     * Returns the humand-readable name of this metric. This is used to create the
+     * Returns the humand-readable name of this quantity. This is used to create the
      * {@link PerformanceQuantity ::toHumanReadable} notation.
      */
     abstract protected String getHumanReadableDescription();

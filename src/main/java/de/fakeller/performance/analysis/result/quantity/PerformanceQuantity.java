@@ -1,10 +1,10 @@
-package de.fakeller.performance.analysis.result.metric;
+package de.fakeller.performance.analysis.result.quantity;
 
 import de.fakeller.performance.analysis.result.unit.Unit;
 import de.fakeller.performance.analysis.result.valueobject.ValueObject;
 
 /**
- * Defines a metric relevant to performance analyses.
+ * Defines a quantity relevant to performance analyses.
  */
 public interface PerformanceQuantity<U extends Unit> extends ValueObject {
 

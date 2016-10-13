@@ -1,6 +1,6 @@
 package de.fakeller.performance.analysis.result.unit;
 
-import de.fakeller.performance.analysis.result.metric.PerformanceQuantity;
+import de.fakeller.performance.analysis.result.quantity.PerformanceQuantity;
 
 /**
  * Explicitly state that there is no unit for a certain {@link PerformanceQuantity}

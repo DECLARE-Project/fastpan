@@ -1,4 +1,4 @@
-package de.fakeller.performance.analysis.result.metric;
+package de.fakeller.performance.analysis.result.quantity;
 
 import de.fakeller.performance.analysis.result.valueobject.Percentage;
 import org.junit.Assert;
