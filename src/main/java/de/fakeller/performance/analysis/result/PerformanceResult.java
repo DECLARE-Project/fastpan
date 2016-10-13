@@ -1,6 +1,7 @@
 package de.fakeller.performance.analysis.result;
 
 import de.fakeller.performance.analysis.result.metric.PerformanceMetric;
+import de.fakeller.performance.analysis.result.quantity.PerformanceQuantity;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -39,7 +40,8 @@ public interface PerformanceResult<T> {
     Collection<Result<T>> getResults(T element);
 
     /**
-     * Returns an optional containing the {@link PerformanceMetric} attached to the given element.
+     * Returns an optional containing the {@link PerformanceMetric} reasoning about a certain {@link PerformanceQuantity}
+     * that is attached to the given element.
      */
-    <M extends PerformanceMetric> Optional<M> getMetric(T element, Class<M> metric);
+    <M extends PerformanceQuantity> Optional<PerformanceMetric<M>> getMetric(T element, Class<M> metric);
 }

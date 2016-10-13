@@ -1,9 +1,9 @@
 package de.fakeller.performance.analysis.result;
 
-import de.fakeller.performance.analysis.result.metric.PerformanceMetric;
-import de.fakeller.performance.analysis.result.metric.ServiceTime;
-import de.fakeller.performance.analysis.result.metric.Throughput;
-import de.fakeller.performance.analysis.result.metric.Utilization;
+import de.fakeller.performance.analysis.result.metric.DirectMetric;
+import de.fakeller.performance.analysis.result.metric.aggregate.MeanMetric;
+import de.fakeller.performance.analysis.result.quantity.RelativeThroughput;
+import de.fakeller.performance.analysis.result.quantity.ServiceTime;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -71,17 +71,19 @@ public class AbstractPerformanceResultTest {
 
     @Test
     public void getMetric() {
-        when(mockResult("node2").value()).thenReturn(mock(PerformanceMetric.class));
-        when(mockResult("node2").value()).thenReturn(mock(Utilization.class));
+        when(mockResult("node2").value()).thenReturn(mock(MeanMetric.class));
+        when(mockResult("node2").value()).thenReturn(mock(DirectMetric.class));
         final ServiceTime serviceTime = mock(ServiceTime.class);
-        when(mockResult("node2").value()).thenReturn(serviceTime);
+        final DirectMetric metric = mock(DirectMetric.class);
+        when(metric.getMetric()).thenReturn(serviceTime);
+        when(mockResult("node2").value()).thenReturn(metric);
 
         assertTrue(this.sut.getMetric("node2", ServiceTime.class).isPresent());
         assertSame(serviceTime, this.sut.getMetric("node2", ServiceTime.class).get());
-        assertFalse(this.sut.getMetric("node2", Throughput.class).isPresent());
+        assertFalse(this.sut.getMetric("node2", RelativeThroughput.class).isPresent());
 
         assertFalse(this.sut.getMetric("node3", ServiceTime.class).isPresent());
-        assertFalse(this.sut.getMetric("node3", Throughput.class).isPresent());
+        assertFalse(this.sut.getMetric("node3", RelativeThroughput.class).isPresent());
     }
 
 

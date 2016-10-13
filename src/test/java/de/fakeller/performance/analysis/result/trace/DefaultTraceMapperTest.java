@@ -3,7 +3,8 @@ package de.fakeller.performance.analysis.result.trace;
 import de.fakeller.performance.analysis.result.AbstractPerformanceResult;
 import de.fakeller.performance.analysis.result.AttachedResult;
 import de.fakeller.performance.analysis.result.PerformanceResult;
-import de.fakeller.performance.analysis.result.metric.Utilization;
+import de.fakeller.performance.analysis.result.metric.DirectMetric;
+import de.fakeller.performance.analysis.result.quantity.Utilization;
 import de.fakeller.performance.analysis.result.valueobject.Percentage;
 import org.junit.Before;
 import org.junit.Test;
@@ -52,8 +53,8 @@ public class DefaultTraceMapperTest {
         assertTrue(mapped.hasResults(2.0));
         assertFalse(mapped.hasResults(3.0));
         assertEquals(Arrays.asList(
-                new AttachedResult<Double>(1.0, new Utilization(Percentage.of(0.44))),
-                new AttachedResult<Double>(1.0, new Utilization(Percentage.of(0.88)))
+                new AttachedResult<Double>(1.0, new DirectMetric<>(new Utilization(Percentage.of(0.44)))),
+                new AttachedResult<Double>(1.0, new DirectMetric<>(new Utilization(Percentage.of(0.88))))
         ), mapped.getResults(1.0));
     }
 

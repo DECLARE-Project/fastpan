@@ -16,4 +16,9 @@ public class MeanMetric<T extends PerformanceQuantity> extends AbstractPerforman
     public T getMetric() {
         return this.mean;
     }
+
+    @Override
+    public String toHumanReadable() {
+        return "Mean " + this.mean.toHumanReadable();
+    }
 }

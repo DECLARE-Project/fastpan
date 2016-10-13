@@ -14,4 +14,9 @@ public class DirectMetric<T extends PerformanceQuantity> extends AbstractPerform
     public T getMetric() {
         return this.val;
     }
+
+    @Override
+    public String toHumanReadable() {
+        return this.val.toHumanReadable();
+    }
 }

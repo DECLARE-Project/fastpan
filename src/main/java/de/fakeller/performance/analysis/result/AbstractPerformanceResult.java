@@ -1,6 +1,7 @@
 package de.fakeller.performance.analysis.result;
 
 import de.fakeller.performance.analysis.result.metric.PerformanceMetric;
+import de.fakeller.performance.analysis.result.quantity.PerformanceQuantity;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -63,14 +64,14 @@ abstract public class AbstractPerformanceResult<T> implements PerformanceResult<
     }
 
     @Override
-    public <M extends PerformanceMetric> Optional<M> getMetric(final T element, final Class<M> metricClazz) {
+    public <M extends PerformanceQuantity> Optional<PerformanceMetric<M>> getMetric(final T element, final Class<M> metricClazz) {
         if (!this.results.containsKey(element)) {
             return Optional.empty();
         }
         for (final Result res : this.results.get(element)) {
             final PerformanceMetric metric = res.value();
-            if (metricClazz.isInstance(metric)) {
-                return Optional.of((M) metric);
+            if (metric.isOfType(metricClazz)) {
+                return Optional.of((PerformanceMetric<M>) metric);
             }
         }
         return Optional.empty();
