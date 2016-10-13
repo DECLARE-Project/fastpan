@@ -1,24 +1,21 @@
 package de.fakeller.performance.analysis.result.metric.aggregate;
 
-import de.fakeller.performance.analysis.result.metric.AbstractPerformanceMetric;
 import de.fakeller.performance.analysis.result.metric.CollectiveMetric;
 import de.fakeller.performance.analysis.result.quantity.PerformanceQuantity;
 
-public class MeanMetric<T extends PerformanceQuantity> extends AbstractPerformanceMetric<T> implements CollectiveMetric<T> {
-    public final T mean;
+/**
+ * Represents the arithmetic mean of the {@link PerformanceQuantity}.
+ *
+ * @param <Q>
+ */
+public class MeanMetric<Q extends PerformanceQuantity> extends AbstractAggregateMetric<Q> implements CollectiveMetric<Q> {
 
-    public MeanMetric(final T mean) {
-        super((Class<T>) mean.getClass());
-        this.mean = mean;
-    }
-
-    @Override
-    public T getMetric() {
-        return this.mean;
+    public MeanMetric(final Q mean) {
+        super(mean);
     }
 
     @Override
     public String toHumanReadable() {
-        return "Mean " + this.mean.toHumanReadable();
+        return "Mean " + this.aggregate.toHumanReadable();
     }
 }

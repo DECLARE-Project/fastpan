@@ -2,11 +2,11 @@ package de.fakeller.performance.analysis.result.metric;
 
 import de.fakeller.performance.analysis.result.quantity.PerformanceQuantity;
 
-abstract public class AbstractPerformanceMetric<T extends PerformanceQuantity> implements PerformanceMetric<T> {
+abstract public class AbstractPerformanceMetric<Q extends PerformanceQuantity> implements PerformanceMetric<Q> {
 
-    public final Class<T> clazz;
+    public final Class<Q> clazz;
 
-    public AbstractPerformanceMetric(final Class<T> clazz) {
+    public AbstractPerformanceMetric(final Class<Q> clazz) {
         this.clazz = clazz;
     }
 
