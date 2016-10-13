@@ -4,6 +4,7 @@ import de.fakeller.performance.analysis.result.metric.DirectMetric;
 import de.fakeller.performance.analysis.result.metric.aggregate.MeanMetric;
 import de.fakeller.performance.analysis.result.quantity.RelativeThroughput;
 import de.fakeller.performance.analysis.result.quantity.ServiceTime;
+import de.fakeller.performance.analysis.result.valueobject.Duration;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -73,13 +74,12 @@ public class AbstractPerformanceResultTest {
     public void getMetric() {
         when(mockResult("node2").value()).thenReturn(mock(MeanMetric.class));
         when(mockResult("node2").value()).thenReturn(mock(DirectMetric.class));
-        final ServiceTime serviceTime = mock(ServiceTime.class);
-        final DirectMetric metric = mock(DirectMetric.class);
-        when(metric.getMetric()).thenReturn(serviceTime);
+        final ServiceTime serviceTime = new ServiceTime(Duration.ofMilliseconds(210));
+        final DirectMetric metric = new DirectMetric<>(serviceTime);
         when(mockResult("node2").value()).thenReturn(metric);
 
         assertTrue(this.sut.getMetric("node2", ServiceTime.class).isPresent());
-        assertSame(serviceTime, this.sut.getMetric("node2", ServiceTime.class).get());
+        assertSame(metric, this.sut.getMetric("node2", ServiceTime.class).get());
         assertFalse(this.sut.getMetric("node2", RelativeThroughput.class).isPresent());
 
         assertFalse(this.sut.getMetric("node3", ServiceTime.class).isPresent());
