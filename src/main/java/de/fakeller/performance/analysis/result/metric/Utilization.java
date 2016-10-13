@@ -1,14 +1,15 @@
 package de.fakeller.performance.analysis.result.metric;
 
+import de.fakeller.performance.analysis.result.unit.Unitless;
 import de.fakeller.performance.analysis.result.valueobject.Percentage;
 
 /**
  * Represents the utilization of a resource.
  */
-public class Utilization extends AbstractPerformanceMetric<Percentage> {
+public class Utilization extends AbstractPerformanceQuantity<Unitless, Percentage> {
 
     public Utilization(final Percentage utilization) {
-        super(utilization);
+        super(utilization, Unitless.UNITLESS);
     }
 
     public Percentage getUtilization() {
@@ -18,5 +19,16 @@ public class Utilization extends AbstractPerformanceMetric<Percentage> {
     @Override
     protected String getHumanReadableDescription() {
         return "Utilization";
+    }
+
+    @Override
+    public double value() {
+        return this.value.getPercentage();
+    }
+
+    @Override
+    public PerformanceQuantity wrap(final double value, final Unitless unit) {
+        assert unit.equals(Unitless.UNITLESS);
+        return new Utilization(Percentage.of(value));
     }
 }

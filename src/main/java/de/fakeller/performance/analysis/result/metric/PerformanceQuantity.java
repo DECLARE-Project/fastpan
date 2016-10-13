@@ -6,7 +6,7 @@ import de.fakeller.performance.analysis.result.valueobject.ValueObject;
 /**
  * Defines a metric relevant to performance analyses.
  */
-public interface PerformanceQuantity<Q extends PerformanceQuantity<Q>> extends ValueObject {
+public interface PerformanceQuantity<U extends Unit> extends ValueObject {
 
     /**
      * Returns the value of this quantity as double.
@@ -18,7 +18,7 @@ public interface PerformanceQuantity<Q extends PerformanceQuantity<Q>> extends V
     /**
      * The unit this performance quantity is stored in.
      */
-    Unit<Q> unit();
+    U unit();
 
     /**
      * Wraps a double value into a performance quantity object of the same type as this one, using the same unit.
@@ -30,5 +30,5 @@ public interface PerformanceQuantity<Q extends PerformanceQuantity<Q>> extends V
     /**
      * Wraps a double value into a performance quantity object of the same type as this one, using the supplied unit.
      */
-    PerformanceQuantity wrap(double value, Unit<Q> unit);
+    PerformanceQuantity wrap(double value, U unit);
 }
