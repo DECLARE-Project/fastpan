@@ -26,11 +26,6 @@ public class NormalDistributionMetric<Q extends PerformanceQuantity> extends Abs
     }
 
     @Override
-    public boolean isOfType(Class<? extends PerformanceQuantity> type) {
-        return false;
-    }
-
-    @Override
     public String toHumanReadable() {
         return String.format(Locale.ROOT, "N(mu=(%s), sigma=%.4f)", mu.toHumanReadable(), sigma.getVariance());
     }
