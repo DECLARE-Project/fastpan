@@ -7,12 +7,16 @@ import de.fakeller.performance.analysis.result.valueobject.AbstractValueObject;
  */
 public class Variance extends AbstractValueObject<Double> {
 
-    protected Variance(double value) {
+    public Variance(double value) {
         super(value);
     }
 
     @Override
     public String toHumanReadable() {
         return String.format("variance=%.4f", this.value);
+    }
+
+    public double getVariance() {
+        return this.value;
     }
 }
