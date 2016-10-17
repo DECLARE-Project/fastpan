@@ -1,5 +1,6 @@
-package de.fakeller.performance.analysis.result.quantity;
+package de.fakeller.performance.analysis.result.quantity.time;
 
+import de.fakeller.performance.analysis.result.quantity.PerformanceQuantity;
 import de.fakeller.performance.analysis.result.unit.TimeUnit;
 
 /**
