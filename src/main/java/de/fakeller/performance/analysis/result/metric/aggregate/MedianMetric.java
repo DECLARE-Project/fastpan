@@ -16,6 +16,6 @@ public class MedianMetric<Q extends PerformanceQuantity> extends AbstractAggrega
 
     @Override
     public String toHumanReadable() {
-        return "median=" + this.aggregate.toHumanReadable();
+        return String.format("median(%s)", this.aggregate.toHumanReadable());
     }
 }

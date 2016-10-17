@@ -16,6 +16,6 @@ public class MinMetric<Q extends PerformanceQuantity> extends AbstractAggregateM
 
     @Override
     public String toHumanReadable() {
-        return "min=" + this.aggregate.toHumanReadable();
+        return String.format("min(%s)", this.aggregate.toHumanReadable());
     }
 }

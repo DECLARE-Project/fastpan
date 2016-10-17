@@ -16,6 +16,6 @@ public class SumMetric<Q extends PerformanceQuantity> extends AbstractAggregateM
 
     @Override
     public String toHumanReadable() {
-        return "sum=" + this.aggregate.toHumanReadable();
+        return String.format("sum(%s)", this.aggregate.toHumanReadable());
     }
 }

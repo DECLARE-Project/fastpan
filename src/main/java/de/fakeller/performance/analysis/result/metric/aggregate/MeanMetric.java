@@ -16,6 +16,6 @@ public class MeanMetric<Q extends PerformanceQuantity> extends AbstractAggregate
 
     @Override
     public String toHumanReadable() {
-        return "mean=" + this.aggregate.toHumanReadable();
+        return String.format("mean(%s)", this.aggregate.toHumanReadable());
     }
 }

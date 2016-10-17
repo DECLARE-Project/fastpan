@@ -16,6 +16,6 @@ public class MaxMetric<Q extends PerformanceQuantity> extends AbstractAggregateM
 
     @Override
     public String toHumanReadable() {
-        return "max=" + this.aggregate.toHumanReadable();
+        return String.format("max(%s)", this.aggregate.toHumanReadable());
     }
 }
