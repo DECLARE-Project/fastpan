@@ -4,18 +4,18 @@ import de.fakeller.performance.analysis.result.metric.CollectiveMetric;
 import de.fakeller.performance.analysis.result.quantity.PerformanceQuantity;
 
 /**
- * Represents the arithmetic mean of the {@link PerformanceQuantity}.
+ * Represents the median of the {@link PerformanceQuantity}.
  *
  * @param <Q>
  */
-public class MeanMetric<Q extends PerformanceQuantity> extends AbstractAggregateMetric<Q> implements CollectiveMetric<Q> {
+public class MedianMetric<Q extends PerformanceQuantity> extends AbstractAggregateMetric<Q> implements CollectiveMetric<Q> {
 
-    public MeanMetric(final Q mean) {
+    public MedianMetric(final Q mean) {
         super(mean);
     }
 
     @Override
     public String toHumanReadable() {
-        return "mean=" + this.aggregate.toHumanReadable();
+        return "median=" + this.aggregate.toHumanReadable();
     }
 }
