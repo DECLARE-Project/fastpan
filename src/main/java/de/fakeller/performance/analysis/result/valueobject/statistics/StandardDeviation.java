@@ -2,6 +2,8 @@ package de.fakeller.performance.analysis.result.valueobject.statistics;
 
 import de.fakeller.performance.analysis.result.valueobject.AbstractValueObject;
 
+import java.util.Locale;
+
 /**
  * Represents the standard deviation sigma.
  */
@@ -13,7 +15,7 @@ public class StandardDeviation extends AbstractValueObject<Double> {
 
     @Override
     public String toHumanReadable() {
-        return String.format("std=%.4f", this.value);
+        return String.format(Locale.ROOT, "std=%.4f", this.value);
     }
 
     public double getStandardDeviation() {
