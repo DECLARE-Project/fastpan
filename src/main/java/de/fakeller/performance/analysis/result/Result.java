@@ -15,7 +15,7 @@ public interface Result<T> {
     T attachedTo();
 
     /**
-     * The actual value.
+     * The metric.
      */
-    PerformanceMetric value();
+    PerformanceMetric<?> value();
 }

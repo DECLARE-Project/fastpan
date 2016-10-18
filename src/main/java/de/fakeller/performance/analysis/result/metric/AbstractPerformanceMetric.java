@@ -1,25 +1,17 @@
 package de.fakeller.performance.analysis.result.metric;
 
-import de.fakeller.performance.analysis.result.valueobject.AbstractValueObject;
-import de.fakeller.performance.analysis.result.valueobject.ValueObject;
+import de.fakeller.performance.analysis.result.quantity.PerformanceQuantity;
 
-/**
- * Used as base class for implementing {@link PerformanceMetric}s.
- */
-abstract public class AbstractPerformanceMetric<T extends ValueObject> extends AbstractValueObject<T> implements PerformanceMetric {
+abstract public class AbstractPerformanceMetric<Q extends PerformanceQuantity> implements PerformanceMetric<Q> {
 
-    protected AbstractPerformanceMetric(final T value) {
-        super(value);
+    public final Class<Q> clazz;
+
+    public AbstractPerformanceMetric(final Class<Q> clazz) {
+        this.clazz = clazz;
     }
 
     @Override
-    public String toHumanReadable() {
-        return String.format("%s: %s", this.getHumanReadableDescription(), this.value.toHumanReadable());
+    public boolean isOfType(final Class<? extends PerformanceQuantity> type) {
+        return this.clazz.equals(type);
     }
-
-    /**
-     * Returns the humand-readable name of this metric. This is used to create the
-     * {@link PerformanceMetric::toHumanReadable} notation.
-     */
-    abstract protected String getHumanReadableDescription();
 }
