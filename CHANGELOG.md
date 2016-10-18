@@ -8,6 +8,12 @@ This file keeps track of all changes to this project. This project follows [sema
 ## [UNRELEASED]
 
 
+## v0.2.0 - 2016-10-18
+
+### Changed
+- A `PerformanceResult` is now attached to an element and has a `PerformanceMetric` (which is to be seen as some mathematical operation, such as `mean()`). The `PerformanceMetric` itself then contains a `PerformanceQuantity` that reasons about the actual value and unit.
+
+
 ## v0.1.2 - 2016-10-12
 
 ### Added
