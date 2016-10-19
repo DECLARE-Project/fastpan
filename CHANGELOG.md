@@ -7,6 +7,9 @@ This file keeps track of all changes to this project. This project follows [sema
 
 ## [UNRELEASED]
 
+### Changed
+- `BusyTime`/`IdleTime` do not require a time unit anymore. Times are in milliseconds by default.
+
 
 ## v0.2.0 - 2016-10-18
 
