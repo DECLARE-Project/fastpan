@@ -36,7 +36,7 @@ public class Attach<T> {
         this.attachedTo = attachedTo;
     }
 
-    public static <T> Attach.QuantityBuilder to(final T attachedTo) {
+    public static <T> Attach<T>.QuantityBuilder to(final T attachedTo) {
         assert null != attachedTo;
         return new Attach<>(attachedTo).new QuantityBuilder();
     }
