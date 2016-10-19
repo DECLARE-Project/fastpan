@@ -7,6 +7,9 @@ This file keeps track of all changes to this project. This project follows [sema
 
 ## [UNRELEASED]
 
+### Added
+- Convenient builder for `Result`s: `de.fakeller.performance.analysis.result.Attach`.
+
 ### Changed
 - `BusyTime`/`IdleTime` do not require a time unit anymore. Times are in milliseconds by default.
 
