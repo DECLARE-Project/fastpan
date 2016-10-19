@@ -24,7 +24,7 @@ import de.fakeller.performance.analysis.result.valueobject.statistics.Variance;
  * The API allows to concisely create results:
  * <p>
  * <code>
- * AttachedResult res = Attach.to(element).serviceTime(Duration.of(240)).mean();
+ * Result res = Attach.to(element).serviceTime(Duration.of(240)).mean();
  * </code>
  */
 public class Attach<T> {
@@ -79,39 +79,39 @@ public class Attach<T> {
             assert null != Attach.this.quantity;
         }
 
-        public AttachedResult<T> direct() {
+        public Result<T> direct() {
             return get(new DirectMetric<>(Attach.this.quantity));
         }
 
-        public AttachedResult<T> min() {
+        public Result<T> min() {
             return get(new MinMetric<>(Attach.this.quantity));
         }
 
-        public AttachedResult<T> max() {
+        public Result<T> max() {
             return get(new MaxMetric<>(Attach.this.quantity));
         }
 
-        public AttachedResult<T> mean() {
+        public Result<T> mean() {
             return get(new MeanMetric<>(Attach.this.quantity));
         }
 
-        public AttachedResult<T> median() {
+        public Result<T> median() {
             return get(new MedianMetric<>(Attach.this.quantity));
         }
 
-        public AttachedResult<T> sum() {
+        public Result<T> sum() {
             return get(new SumMetric<>(Attach.this.quantity));
         }
 
-        public AttachedResult<T> normalDistribution(final Variance sigma) {
+        public Result<T> normalDistribution(final Variance sigma) {
             return get(new NormalDistributionMetric<>(Attach.this.quantity, sigma));
         }
 
-        public AttachedResult<T> normalDistribution(final StandardDeviation sigma) {
+        public Result<T> normalDistribution(final StandardDeviation sigma) {
             return get(new NormalDistributionMetric<>(Attach.this.quantity, sigma));
         }
 
-        private AttachedResult<T> get(final PerformanceMetric metric) {
+        private Result<T> get(final PerformanceMetric metric) {
             return new AttachedResult<T>(Attach.this.attachedTo, metric);
         }
     }
