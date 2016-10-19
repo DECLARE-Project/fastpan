@@ -12,6 +12,7 @@ This file keeps track of all changes to this project. This project follows [sema
 
 ### Changed
 - `BusyTime`/`IdleTime` do not require a time unit anymore. Times are in milliseconds by default.
+- Convenience methods in `PerformanceResultWriter` have been removed. Use `Attach` builder to create results instead.
 
 
 ## v0.2.0 - 2016-10-18
