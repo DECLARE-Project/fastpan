@@ -7,6 +7,9 @@ This file keeps track of all changes to this project. This project follows [sema
 
 ## [UNRELEASED]
 
+
+## v0.2.1 - 2016-10-20
+
 ### Added
 - Convenient builder for `Result`s: `de.fakeller.performance.analysis.result.Attach`.
 
