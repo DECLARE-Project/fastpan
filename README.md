@@ -1,4 +1,4 @@
-# fastpan
+# ![fastpan](fastpan-logo.png?raw=true "fastpan")
 
 [![GitHub tag](https://img.shields.io/github/tag/DECLARE-Project/fastpan.svg?maxAge=30)](https://github.com/DECLARE-Project/fastpan/releases)
 [![Travis](https://img.shields.io/travis/DECLARE-Project/fastpan.svg?maxAge=30)](https://travis-ci.org/DECLARE-Project/fastpan)
