@@ -1,6 +1,7 @@
 package de.fakeller.performance.analysis.result.trace;
 
 import de.fakeller.performance.analysis.result.AbstractPerformanceResult;
+import de.fakeller.performance.analysis.result.Attach;
 import de.fakeller.performance.analysis.result.AttachedResult;
 import de.fakeller.performance.analysis.result.PerformanceResult;
 import de.fakeller.performance.analysis.result.metric.DirectMetric;
@@ -44,9 +45,9 @@ public class DefaultTraceMapperTest {
 
     @Test
     public void map_regularResult_toMappedResult() throws Exception {
-        this.results.attachUtilization("1.0", 0.44);
-        this.results.attachUtilization("1.0", 0.88);
-        this.results.attachUtilization("2.0", 0.22);
+        this.results.attach(Attach.to("1.0").utilization(Percentage.of(0.44)).direct());
+        this.results.attach(Attach.to("1.0").utilization(Percentage.of(0.88)).direct());
+        this.results.attach(Attach.to("2.0").utilization(Percentage.of(0.22)).direct());
         final PerformanceResult<Double> mapped = this.sut.map(this.results);
         assertTrue(mapped.hasResults());
         assertTrue(mapped.hasResults(1.0));
@@ -60,7 +61,7 @@ public class DefaultTraceMapperTest {
 
     @Test
     public void map_untracableResult_toNoResult() throws Exception {
-        this.results.attachUtilization("thisIsNotTraceable", 0.44);
+        this.results.attach(Attach.to("thisIsNotTraceable").utilization(Percentage.of(0.44)).direct());
         assertTrue(this.results.hasResults());
         assertFalse(this.sut.map(this.results).hasResults());
     }

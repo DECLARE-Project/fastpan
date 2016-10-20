@@ -9,8 +9,8 @@ import de.fakeller.performance.analysis.result.valueobject.Duration;
  */
 public class IdleTime extends AbstractTimeQuantity {
 
-    public IdleTime(final Duration idletime, final TimeUnit unit) {
-        super(idletime, unit);
+    public IdleTime(final Duration idletime) {
+        super(idletime, TimeUnit.MILLISECONDS);
     }
 
     @Override
@@ -20,6 +20,6 @@ public class IdleTime extends AbstractTimeQuantity {
 
     @Override
     public PerformanceQuantity wrap(final double value, final TimeUnit unit) {
-        return new IdleTime(Duration.ofMilliseconds(value), unit);
+        return new IdleTime(Duration.ofMilliseconds(value));
     }
 }

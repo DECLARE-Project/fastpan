@@ -9,8 +9,8 @@ import de.fakeller.performance.analysis.result.valueobject.Duration;
  */
 public class BusyTime extends AbstractTimeQuantity {
 
-    public BusyTime(Duration busytime, TimeUnit unit) {
-        super(busytime, unit);
+    public BusyTime(final Duration busytime) {
+        super(busytime, TimeUnit.MILLISECONDS);
     }
 
     @Override
@@ -19,7 +19,7 @@ public class BusyTime extends AbstractTimeQuantity {
     }
 
     @Override
-    public PerformanceQuantity wrap(double value, TimeUnit unit) {
-        return new BusyTime(Duration.ofMilliseconds(value), unit);
+    public PerformanceQuantity wrap(final double value, final TimeUnit unit) {
+        return new BusyTime(Duration.ofMilliseconds(value));
     }
 }
