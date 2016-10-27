@@ -7,6 +7,9 @@ This file keeps track of all changes to this project. This project follows [sema
 
 ## [UNRELEASED]
 
+
+## v0.2.2 - 2016-10-27
+
 ### Added
 - Objective interfaces to reduce performance results for further analysis.
 - `BaseAnalyzer` to simply analyze a collection of configurations and retrieve all `PerformanceResult`s. 
