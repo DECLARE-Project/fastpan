@@ -3,7 +3,7 @@
 
     <groupId>de.fakeller.performance</groupId>
     <artifactId>fastpan</artifactId>
-    <version>0.2.2</version>
+    <version>0.2.3-SNAPSHOT</version>
 
     <name>fastpan</name>
     <description>A framework for model-agnostic and reusable software performance analysis.</description>
@@ -11,7 +11,7 @@
 
     <scm>
         <developerConnection>scm:git:git@github.com:DECLARE-Project/fastpan.git</developerConnection>
-        <tag>v0.2.2</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <properties>
