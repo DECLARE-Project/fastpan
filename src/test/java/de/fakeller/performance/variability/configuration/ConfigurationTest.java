@@ -107,6 +107,9 @@ public class ConfigurationTest {
 
         cfg.enableAll();
         assertEquals(Arrays.asList(true, true, true, true), cfg.getFeatureFlags());
+
+        cfg.disableAll();
+        assertEquals(Arrays.asList(false, false, false, false), cfg.getFeatureFlags());
     }
 
 }
