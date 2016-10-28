@@ -6,7 +6,6 @@ import de.fakeller.performance.analysis.result.PerformanceResult;
 import de.fakeller.performance.variability.SystemProvider;
 import de.fakeller.performance.variability.configuration.Configuration;
 import de.fakeller.performance.variability.configuration.ConfigurationProvider;
-import de.fakeller.performance.variability.feature.Feature;
 import de.fakeller.performance.variability.feature.FeatureModel;
 import org.junit.Before;
 import org.junit.Test;
@@ -36,11 +35,7 @@ public class BaseContextTest {
 
     // feature model //
 
-    FeatureModel<String> fm = new FeatureModel<String>(Arrays.asList(
-            new Feature<>("one", "one"),
-            new Feature<>("two", "two"),
-            new Feature<>("three", "three")
-    ));
+    FeatureModel<String> fm = new FeatureModel<String>(Arrays.asList("one", "two", "three"));
 
     @Before
     public void setUp() throws Exception {

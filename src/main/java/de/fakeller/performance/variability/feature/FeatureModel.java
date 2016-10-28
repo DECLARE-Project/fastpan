@@ -7,33 +7,37 @@ import java.util.*;
  * <p>
  * Constraints between features are not modeled, as they are not relevant for performance analysis. They should be
  * modeled by the backing feature model.
+ *
+ * @param <FEATURE> the backing class representing a feature. Features must properly implement {@link Object#hashCode()}
+ *                  and {@link Object#equals(Object)}.
  */
 public class FeatureModel<FEATURE> {
 
-    private final Set<Feature<FEATURE>> features = new LinkedHashSet<>();
+    private final Set<FEATURE> features = new LinkedHashSet<>();
 
-    public FeatureModel(final List<Feature<FEATURE>> features) {
+    public FeatureModel(final List<FEATURE> features) {
         this.features.addAll(features);
     }
 
     /**
      * Returns all features in this feature model.
      */
-    public List<Feature<FEATURE>> getFeatures() {
-        return Collections.unmodifiableList(new ArrayList<Feature<FEATURE>>(this.features));
+    public List<FEATURE> getFeatures() {
+        return Collections.unmodifiableList(new ArrayList<>(this.features));
     }
 
     /**
      * Determines whether the given feature is part of this feature model.
      */
-    public boolean hasFeature(final Feature<FEATURE> feature) {
+    public boolean hasFeature(final FEATURE feature) {
         return this.features.contains(feature);
     }
 
     /**
      * Gets the feature at the specified index.
      */
-    public Feature<FEATURE> get(final int index) {
+    public FEATURE get(final int index) {
+        assert index < this.getFeatures().size();
         return this.getFeatures().get(index);
     }
 }
