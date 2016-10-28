@@ -7,6 +7,9 @@ This file keeps track of all changes to this project. This project follows [sema
 
 ## [UNRELEASED]
 
+
+## v0.3.0 - 2016-10-28
+
 ### Changed
 - The `Feature` class has been removed and can be replaced by direct references to the feature class.
 - The `Configuration` offers a better API.
