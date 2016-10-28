@@ -40,4 +40,9 @@ public class FeatureModelTest {
         assertEquals("C", this.sut.get(2));
         assertEquals("D", this.sut.get(3));
     }
+
+    @Test(expected = UnknownFeatureException.class)
+    public void get_withInvalidIndex_throwsException() throws Exception {
+        this.sut.get(4);
+    }
 }

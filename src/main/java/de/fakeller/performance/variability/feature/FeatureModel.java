@@ -35,9 +35,13 @@ public class FeatureModel<FEATURE> {
 
     /**
      * Gets the feature at the specified index.
+     *
+     * @throws UnknownFeatureException in case the index is not valid
      */
     public FEATURE get(final int index) {
-        assert index < this.getFeatures().size();
+        if (index < 0 || index >= this.getFeatures().size()) {
+            throw new UnknownFeatureException(String.format("Feature model %s does not have a feature at index %d, as there are only %d features available.", this, index, this.features.size()));
+        }
         return this.getFeatures().get(index);
     }
 }
