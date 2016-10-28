@@ -1,6 +1,7 @@
 package de.fakeller.performance.variability.configuration;
 
 import de.fakeller.performance.variability.feature.FeatureModel;
+import de.fakeller.performance.variability.feature.UnknownFeatureException;
 
 import java.util.*;
 
@@ -19,8 +20,8 @@ public class Configuration<FEATURE> {
     }
 
 
-    public Configuration<FEATURE> enable(final FEATURE feature) {
-        return this.enable(Arrays.asList(feature));
+    public Configuration<FEATURE> enable(final FEATURE... features) {
+        return this.enable(Arrays.asList(features));
     }
 
     public Configuration<FEATURE> enable(final Collection<FEATURE> features) {
@@ -28,9 +29,16 @@ public class Configuration<FEATURE> {
         return this;
     }
 
+    /**
+     * Sets all feature flags to enabled.
+     */
+    public Configuration<FEATURE> enableAll() {
+        return this.enable(this.isEnabled.keySet());
+    }
 
-    public Configuration<FEATURE> disable(final FEATURE feature) {
-        return this.disable(Arrays.asList(feature));
+
+    public Configuration<FEATURE> disable(final FEATURE... features) {
+        return this.disable(Arrays.asList(features));
     }
 
     public Configuration<FEATURE> disable(final Collection<FEATURE> features) {
@@ -38,16 +46,18 @@ public class Configuration<FEATURE> {
         return this;
     }
 
-
-    private void setConfiguration(final Collection<FEATURE> features, final boolean enabled) {
-        features.forEach(feature -> {
-            assert this.fm.hasFeature(feature);
-            this.isEnabled.put(feature, enabled);
-        });
+    /**
+     * Sets all feature flags to enabled.
+     */
+    public Configuration<FEATURE> disableAll() {
+        return this.disable(this.isEnabled.keySet());
     }
 
+    /**
+     * Determines whether the given feature is enabled or not.
+     */
     public boolean isEnabled(final FEATURE feature) {
-        assert this.fm.hasFeature(feature);
+        this.assertContainsFeature(feature);
         return this.isEnabled.get(feature);
     }
 
@@ -57,4 +67,19 @@ public class Configuration<FEATURE> {
     public List<Boolean> getFeatureFlags() {
         return new ArrayList<>(this.isEnabled.values());
     }
+
+
+    private void setConfiguration(final Collection<FEATURE> features, final boolean enabled) {
+        features.forEach(feature -> {
+            this.assertContainsFeature(feature);
+            this.isEnabled.put(feature, enabled);
+        });
+    }
+
+    private void assertContainsFeature(final FEATURE feature) {
+        if (!this.fm.hasFeature(feature)) {
+            throw new UnknownFeatureException(String.format("The feature model %s does not have feature %s. You must specify all valid features when constructing the feature model!", this.fm, feature));
+        }
+    }
+
 }
