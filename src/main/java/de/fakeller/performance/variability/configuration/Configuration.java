@@ -1,18 +1,18 @@
 package de.fakeller.performance.variability.configuration;
 
-import de.fakeller.performance.variability.feature.Feature;
 import de.fakeller.performance.variability.feature.FeatureModel;
+import de.fakeller.performance.variability.feature.UnknownFeatureException;
 
 import java.util.*;
 
 /**
- * Defines a configuration of the {@link FeatureModel}, such that each {@link Feature} is either enabled or disabled.
+ * Defines a configuration of the {@link FeatureModel}, such that each {@link FEATURE} is either enabled or disabled.
  */
 public class Configuration<FEATURE> {
 
     private final FeatureModel<FEATURE> fm;
 
-    private final Map<Feature<FEATURE>, Boolean> isEnabled = new LinkedHashMap<>();
+    private final Map<FEATURE, Boolean> isEnabled = new LinkedHashMap<>();
 
     public Configuration(final FeatureModel<FEATURE> fm) {
         this.fm = fm;
@@ -20,35 +20,44 @@ public class Configuration<FEATURE> {
     }
 
 
-    public Configuration<FEATURE> enable(final Feature<FEATURE> feature) {
-        return this.enable(Arrays.asList(feature));
+    public Configuration<FEATURE> enable(final FEATURE... features) {
+        return this.enable(Arrays.asList(features));
     }
 
-    public Configuration<FEATURE> enable(final Collection<Feature<FEATURE>> features) {
+    public Configuration<FEATURE> enable(final Collection<FEATURE> features) {
         this.setConfiguration(features, true);
         return this;
     }
 
-
-    public Configuration<FEATURE> disable(final Feature<FEATURE> feature) {
-        return this.disable(Arrays.asList(feature));
+    /**
+     * Sets all feature flags to enabled.
+     */
+    public Configuration<FEATURE> enableAll() {
+        return this.enable(this.isEnabled.keySet());
     }
 
-    public Configuration<FEATURE> disable(final Collection<Feature<FEATURE>> features) {
+
+    public Configuration<FEATURE> disable(final FEATURE... features) {
+        return this.disable(Arrays.asList(features));
+    }
+
+    public Configuration<FEATURE> disable(final Collection<FEATURE> features) {
         this.setConfiguration(features, false);
         return this;
     }
 
-
-    private void setConfiguration(final Collection<Feature<FEATURE>> features, final boolean enabled) {
-        features.forEach(feature -> {
-            assert this.fm.hasFeature(feature);
-            this.isEnabled.put(feature, enabled);
-        });
+    /**
+     * Sets all feature flags to enabled.
+     */
+    public Configuration<FEATURE> disableAll() {
+        return this.disable(this.isEnabled.keySet());
     }
 
-    public boolean isEnabled(final Feature<FEATURE> feature) {
-        assert this.fm.hasFeature(feature);
+    /**
+     * Determines whether the given feature is enabled or not.
+     */
+    public boolean isEnabled(final FEATURE feature) {
+        this.assertContainsFeature(feature);
         return this.isEnabled.get(feature);
     }
 
@@ -58,4 +67,19 @@ public class Configuration<FEATURE> {
     public List<Boolean> getFeatureFlags() {
         return new ArrayList<>(this.isEnabled.values());
     }
+
+
+    private void setConfiguration(final Collection<FEATURE> features, final boolean enabled) {
+        features.forEach(feature -> {
+            this.assertContainsFeature(feature);
+            this.isEnabled.put(feature, enabled);
+        });
+    }
+
+    private void assertContainsFeature(final FEATURE feature) {
+        if (!this.fm.hasFeature(feature)) {
+            throw new UnknownFeatureException(String.format("The feature model %s does not have feature %s. You must specify all valid features when constructing the feature model!", this.fm, feature));
+        }
+    }
+
 }
