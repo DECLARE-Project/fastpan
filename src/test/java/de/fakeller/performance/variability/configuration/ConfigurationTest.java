@@ -1,6 +1,6 @@
 package de.fakeller.performance.variability.configuration;
 
-import de.fakeller.performance.variability.feature.FeatureModel;
+import de.fakeller.performance.variability.feature.BaseFeatureModel;
 import de.fakeller.performance.variability.feature.UnknownFeatureException;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,11 +14,11 @@ import static org.junit.Assert.*;
  */
 public class ConfigurationTest {
 
-    private FeatureModel<String> fm;
+    private BaseFeatureModel<String> fm;
 
     @Before
     public void setUp() throws Exception {
-        this.fm = new FeatureModel<>(Arrays.asList("A", "B", "C", "D"));
+        this.fm = new BaseFeatureModel<>(Arrays.asList("A", "B", "C", "D"));
     }
 
     @Test

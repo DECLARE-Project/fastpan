@@ -1,20 +1,20 @@
 package de.fakeller.performance.variability.configuration;
 
-import de.fakeller.performance.variability.feature.FeatureModel;
+import de.fakeller.performance.variability.feature.BaseFeatureModel;
 import de.fakeller.performance.variability.feature.UnknownFeatureException;
 
 import java.util.*;
 
 /**
- * Defines a configuration of the {@link FeatureModel}, such that each {@link FEATURE} is either enabled or disabled.
+ * Defines a configuration of the {@link BaseFeatureModel}, such that each {@link FEATURE} is either enabled or disabled.
  */
 public class Configuration<FEATURE> {
 
-    private final FeatureModel<FEATURE> fm;
+    private final BaseFeatureModel<FEATURE> fm;
 
     private final Map<FEATURE, Boolean> isEnabled = new LinkedHashMap<>();
 
-    public Configuration(final FeatureModel<FEATURE> fm) {
+    public Configuration(final BaseFeatureModel<FEATURE> fm) {
         this.fm = fm;
         this.fm.getFeatures().forEach(f -> this.isEnabled.put(f, false));
     }
