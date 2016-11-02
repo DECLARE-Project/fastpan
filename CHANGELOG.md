@@ -7,6 +7,9 @@ This file keeps track of all changes to this project. This project follows [sema
 
 ## [UNRELEASED]
 
+
+## v0.4.0 - 2016-11-02
+
 ### Added
 - Add `BackedFeatureModel` and `BackedConfiguration` to integrate 3rd-party feature models and configurations.
 
