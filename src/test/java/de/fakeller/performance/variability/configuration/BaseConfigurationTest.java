@@ -112,4 +112,9 @@ public class BaseConfigurationTest {
         assertEquals(Arrays.asList(false, false, false, false), cfg.getFeatureFlags());
     }
 
+    @Test
+    public void getFeatureModel() throws Exception {
+        assertSame(this.fm, new BaseConfiguration<>(this.fm).getFeatureModel());
+    }
+
 }

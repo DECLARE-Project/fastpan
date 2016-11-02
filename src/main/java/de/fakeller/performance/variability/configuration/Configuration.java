@@ -21,4 +21,9 @@ public interface Configuration<FEATURE> {
      * Returns an ordered list of boolean flags indicating whether the feature at index i is enabled or not.
      */
     List<Boolean> getFeatureFlags();
+
+    /**
+     * Returns the feature model this configuration belongs to.
+     */
+    FeatureModel<FEATURE> getFeatureModel();
 }

@@ -57,6 +57,11 @@ public class BaseConfiguration<FEATURE> implements ModifiableConfiguration<FEATU
         return new ArrayList<>(this.isEnabled.values());
     }
 
+    @Override
+    public FeatureModel<FEATURE> getFeatureModel() {
+        return this.fm;
+    }
+
 
     private void setConfiguration(final Collection<FEATURE> features, final boolean enabled) {
         features.forEach(feature -> {
