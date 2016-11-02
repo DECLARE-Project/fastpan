@@ -1,6 +1,6 @@
 package de.fakeller.performance.variability.configuration;
 
-import de.fakeller.performance.variability.feature.BaseFeatureModel;
+import de.fakeller.performance.variability.feature.FeatureModel;
 import de.fakeller.performance.variability.feature.UnknownFeatureException;
 
 import java.util.*;
@@ -12,11 +12,11 @@ import java.util.*;
  */
 public class BaseConfiguration<FEATURE> implements ModifiableConfiguration<FEATURE> {
 
-    private final BaseFeatureModel<FEATURE> fm;
+    private final FeatureModel<FEATURE> fm;
 
     private final Map<FEATURE, Boolean> isEnabled = new LinkedHashMap<>();
 
-    public BaseConfiguration(final BaseFeatureModel<FEATURE> fm) {
+    public BaseConfiguration(final FeatureModel<FEATURE> fm) {
         this.fm = fm;
         this.fm.getFeatures().forEach(f -> this.isEnabled.put(f, false));
     }

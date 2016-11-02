@@ -5,6 +5,7 @@ import de.fakeller.performance.analysis.PerformanceAnalyzer;
 import de.fakeller.performance.analysis.result.PerformanceResult;
 import de.fakeller.performance.variability.SystemProvider;
 import de.fakeller.performance.variability.configuration.BaseConfiguration;
+import de.fakeller.performance.variability.configuration.Configuration;
 import de.fakeller.performance.variability.configuration.ConfigurationProvider;
 import de.fakeller.performance.variability.feature.BaseFeatureModel;
 import org.junit.Before;
@@ -47,14 +48,14 @@ public class BaseContextTest {
 
     @Test
     public void analyze_withNoConfigurations() throws Exception {
-        when(this.configurationProvider.configurations()).thenReturn(new ArrayList<BaseConfiguration<String>>().iterator());
+        when(this.configurationProvider.configurations()).thenReturn(new ArrayList<Configuration<String>>().iterator());
         this.sut.analyze();
         assertNotNull(this.sut.getResults());
     }
 
     @Test
     public void analyze_withSomeConfigurations() throws Exception {
-        when(this.configurationProvider.configurations()).thenReturn(Stream.of(
+        when(this.configurationProvider.configurations()).thenReturn(Stream.<Configuration<String>>of(
                 new BaseConfiguration<>(this.fm),
                 new BaseConfiguration<>(this.fm).enable(this.fm.get(0)).enable(this.fm.get(2))
         ).iterator());

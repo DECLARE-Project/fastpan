@@ -17,7 +17,7 @@ public class FeatureModelTest {
 
     @Before
     public void setUp() throws Exception {
-        this.sut = new FeatureModel<>(Arrays.asList("A", "B", "C", "D"));
+        this.sut = new BaseFeatureModel<>(Arrays.asList("A", "B", "C", "D"));
 
     }
 
