@@ -24,6 +24,9 @@ public interface VariabilityAnalyzer<SYSTEM, CONTEXT extends VariabilityContext<
 
     /**
      * Set up and configure the variability-aware analysis.
+     *
+     * @param configurationProvider the configurations to analyze
+     * @param systemProvider        a provider turning configurations into an analyzable system
      */
-    CONTEXT setupAnalysis(SystemProvider<SYSTEM, FEATURE> systemProvider, ConfigurationProvider<FEATURE> configurationProvider);
+    CONTEXT setupAnalysis(ConfigurationProvider<FEATURE> configurationProvider, SystemProvider<SYSTEM, FEATURE> systemProvider);
 }

@@ -4,9 +4,10 @@ import de.fakeller.performance.analysis.AnalysisContext;
 import de.fakeller.performance.analysis.PerformanceAnalyzer;
 import de.fakeller.performance.analysis.result.PerformanceResult;
 import de.fakeller.performance.variability.SystemProvider;
+import de.fakeller.performance.variability.configuration.BaseConfiguration;
 import de.fakeller.performance.variability.configuration.Configuration;
 import de.fakeller.performance.variability.configuration.ConfigurationProvider;
-import de.fakeller.performance.variability.feature.FeatureModel;
+import de.fakeller.performance.variability.feature.BaseFeatureModel;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -35,14 +36,14 @@ public class BaseContextTest {
 
     // feature model //
 
-    FeatureModel<String> fm = new FeatureModel<String>(Arrays.asList("one", "two", "three"));
+    BaseFeatureModel<String> fm = new BaseFeatureModel<String>(Arrays.asList("one", "two", "three"));
 
     @Before
     public void setUp() throws Exception {
         this.systemProvider = mock(SystemProvider.class);
         this.configurationProvider = mock(ConfigurationProvider.class);
         this.analyzer = mock(PerformanceAnalyzer.class);
-        this.sut = new BaseContext<>(this.systemProvider, this.configurationProvider, this.analyzer);
+        this.sut = new BaseContext<>(this.configurationProvider, this.systemProvider, this.analyzer);
     }
 
     @Test
@@ -54,9 +55,9 @@ public class BaseContextTest {
 
     @Test
     public void analyze_withSomeConfigurations() throws Exception {
-        when(this.configurationProvider.configurations()).thenReturn(Stream.of(
-                new Configuration<>(this.fm),
-                new Configuration<>(this.fm).enable(this.fm.get(0)).enable(this.fm.get(2))
+        when(this.configurationProvider.configurations()).thenReturn(Stream.<Configuration<String>>of(
+                new BaseConfiguration<>(this.fm),
+                new BaseConfiguration<>(this.fm).enable(this.fm.get(0)).enable(this.fm.get(2))
         ).iterator());
         when(this.systemProvider.systemFor(any())).thenReturn("x");
         final AnalysisContext ac = mock(AnalysisContext.class);

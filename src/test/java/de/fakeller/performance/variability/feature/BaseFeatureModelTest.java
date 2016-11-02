@@ -11,9 +11,9 @@ import static org.junit.Assert.*;
 /**
  * @author Fabian Keller
  */
-public class FeatureModelTest {
+public class BaseFeatureModelTest {
 
-    FeatureModel<String> sut;
+    BaseFeatureModel<String> sut;
 
     @Before
     public void setUp() throws Exception {

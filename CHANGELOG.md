@@ -7,6 +7,13 @@ This file keeps track of all changes to this project. This project follows [sema
 
 ## [UNRELEASED]
 
+### Added
+- Add `BackedFeatureModel` and `BackedConfiguration` to integrate 3rd-party feature models and configurations.
+
+### Changed
+- BC Break: `FeatureModel` and `Configuration` are now interfaces. Use `BaseFeatureModel` and `BaseConfiguration` to upgrade from v0.3.0.
+- BC Break: changed argument order of `VariabilityAnalyzer#setupAnalysis`.
+
 
 ## v0.3.0 - 2016-10-28
 

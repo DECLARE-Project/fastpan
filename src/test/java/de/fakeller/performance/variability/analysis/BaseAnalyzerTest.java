@@ -40,7 +40,7 @@ public class BaseAnalyzerTest {
 
     @Test
     public void setupAnalysis() throws Exception {
-        assertNotNull(this.sut.setupAnalysis(mock(SystemProvider.class), mock(ConfigurationProvider.class)));
+        assertNotNull(this.sut.setupAnalysis(mock(ConfigurationProvider.class), mock(SystemProvider.class)));
     }
 
 }

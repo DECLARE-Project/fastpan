@@ -1,5 +1,6 @@
 package de.fakeller.performance.variability;
 
+import de.fakeller.performance.variability.configuration.BaseConfiguration;
 import de.fakeller.performance.variability.configuration.Configuration;
 
 /**

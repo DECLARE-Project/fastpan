@@ -30,7 +30,7 @@ public class BaseAnalyzer<SYSTEM, FEATURE> implements VariabilityAnalyzer<SYSTEM
     }
 
     @Override
-    public BaseContext<SYSTEM, FEATURE> setupAnalysis(final SystemProvider<SYSTEM, FEATURE> systemProvider, final ConfigurationProvider<FEATURE> configurationProvider) {
-        return new BaseContext<>(systemProvider, configurationProvider, this.analyzer);
+    public BaseContext<SYSTEM, FEATURE> setupAnalysis(final ConfigurationProvider<FEATURE> configurationProvider, final SystemProvider<SYSTEM, FEATURE> systemProvider) {
+        return new BaseContext<>(configurationProvider, systemProvider, this.analyzer);
     }
 }
