@@ -43,7 +43,7 @@ public class BaseContextTest {
         this.systemProvider = mock(SystemProvider.class);
         this.configurationProvider = mock(ConfigurationProvider.class);
         this.analyzer = mock(PerformanceAnalyzer.class);
-        this.sut = new BaseContext<>(this.systemProvider, this.configurationProvider, this.analyzer);
+        this.sut = new BaseContext<>(this.configurationProvider, this.systemProvider, this.analyzer);
     }
 
     @Test

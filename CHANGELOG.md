@@ -7,6 +7,9 @@ This file keeps track of all changes to this project. This project follows [sema
 
 ## [UNRELEASED]
 
+### Changed
+- BC Break: changed argument order of `VariabilityAnalyzer#setupAnalysis`.
+
 
 ## v0.3.0 - 2016-10-28
 

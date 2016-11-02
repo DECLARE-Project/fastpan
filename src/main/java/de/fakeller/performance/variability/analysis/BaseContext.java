@@ -18,14 +18,14 @@ import java.util.Map;
  */
 public class BaseContext<SYSTEM, FEATURE> implements VariabilityContext<SYSTEM, FEATURE> {
 
-    private final SystemProvider<SYSTEM, FEATURE> systemProvider;
     private final ConfigurationProvider<FEATURE> configurationProvider;
+    private final SystemProvider<SYSTEM, FEATURE> systemProvider;
     private final PerformanceAnalyzer<SYSTEM, AnalysisContext<SYSTEM>> analyzer;
     private final Map<Configuration<FEATURE>, PerformanceResult<?>> results = new HashMap<>();
 
-    public BaseContext(final SystemProvider<SYSTEM, FEATURE> systemProvider, final ConfigurationProvider<FEATURE> configurationProvider, final PerformanceAnalyzer<SYSTEM, AnalysisContext<SYSTEM>> analyzer) {
-        this.systemProvider = systemProvider;
+    public BaseContext(final ConfigurationProvider<FEATURE> configurationProvider, final SystemProvider<SYSTEM, FEATURE> systemProvider, final PerformanceAnalyzer<SYSTEM, AnalysisContext<SYSTEM>> analyzer) {
         this.configurationProvider = configurationProvider;
+        this.systemProvider = systemProvider;
         this.analyzer = analyzer;
     }
 
