@@ -14,7 +14,9 @@ import java.util.List;
 public interface FeatureModel<FEATURE> {
 
     /**
-     * Returns all features in this feature model.
+     * Returns all features in this feature model in an ordered-list.
+     *
+     * The order corresponds to the indexes retrievable with {@link FeatureModel#get(int)}.
      */
     List<FEATURE> getFeatures();
 

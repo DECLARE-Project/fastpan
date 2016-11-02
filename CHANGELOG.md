@@ -8,6 +8,7 @@ This file keeps track of all changes to this project. This project follows [sema
 ## [UNRELEASED]
 
 ### Changed
+- BC Break: `FeatureModel` and `Configuration` are now interfaces. Use `BaseFeatureModel` and `BaseConfiguration` to upgrade from v0.3.0.
 - BC Break: changed argument order of `VariabilityAnalyzer#setupAnalysis`.
 
 
