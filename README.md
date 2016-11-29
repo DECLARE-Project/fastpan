@@ -23,7 +23,7 @@ Define a dependency to this project using [JitPack](https://jitpack.io/#DECLARE-
 <dependency>
     <groupId>com.github.DECLARE-Project</groupId>
     <artifactId>fastpan</artifactId>
-    <version>v0.4.0</version>
+    <version>v1.0.0</version>
 </dependency>
 ```
 

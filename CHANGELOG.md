@@ -8,6 +8,11 @@ This file keeps track of all changes to this project. This project follows [sema
 ## [UNRELEASED]
 
 
+## v1.0.0 - 2016-11-29
+
+- Release `v1.0.0` for thesis completion.
+
+
 ## v0.4.0 - 2016-11-02
 
 ### Added
